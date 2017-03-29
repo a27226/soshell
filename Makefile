@@ -3,7 +3,7 @@
 # Alvo: Dependencias
 # tab Action 1
 # tab Action 2
-#
+# ...
 #Variaveis: Compiler, compiler flags, libraries to link, name of of object files
 #
 CC=cc

@@ -8,8 +8,8 @@
 #
 CC=cc
 FLAGS=-c -Wall
-LIBS=-lm
-OBS=main.o execute.o parse.o
+LIBS=-lm -lpthread
+OBS=main.o execute.o parse.o copy.o
  
 #Alvo por defeito é o primeiro 
 all :  soshell
@@ -20,9 +20,11 @@ execute.o : shell.h execute.c
 	$(CC) $(FLAGS) execute.c
 parse.o : shell.h parse.c
 	$(CC) $(FLAGS) parse.c
+copy.o : shell.h copy.c
+	$(CC) $(FLAGS) copy.c
 soshell : $(OBS)
 	$(CC)  -o soshell  $(OBS) $(LIBS)
 clean limpar:
 	rm -f soshell *.o
 	rm *~
-	echo "Limpeza dos ficheiros exectuaveis, objectos e gedit tralha"
+	echo "Limpeza dos ficheiros executaveis, objectos e gedit tralha"

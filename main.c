@@ -2,6 +2,7 @@
 
 char prompt[100];
 
+
 int main ()
 {
   int len;
@@ -33,6 +34,18 @@ int main ()
 
 int builtin (char **args)
 {
+  if(strcmp (args[0], "mycp") == 0)
+  {
+	pthread_t th;
+	myType * data = (myType *) malloc(sizeof(myType));
+	int in = open(args[1], O_RDONLY);
+	int out = creat(args[2], S_IWUSR | S_IRUSR);
+	int size = 1024;
+	if(args[3]!=NULL)
+		size=atoi(args[3]);
+	pthread_create(&th, NULL, wrapperCopy, (void*)data);
+	return 1;
+  }
   if (strcmp (args[0], "sair") == 0)
     {
       exit (0);

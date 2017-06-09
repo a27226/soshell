@@ -2,6 +2,8 @@
    execute . cria um processo progénito e executa um programa
 */
 #include "shell.h"
+#include "stdlib.h"
+#include "sys/types.h"
 
 void execute (char **args)
 {
